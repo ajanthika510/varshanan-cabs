@@ -20,7 +20,17 @@ export default function Navbar() {
           <img
             src={logo}
             alt="logo"
-            className="w-14 h-14 md:w-20 md:h-20 object-contain rounded-full"
+            className="
+                w-20
+                h-20
+                sm:w-24
+                sm:h-24
+                md:w-28
+                md:h-28
+                object-contain
+                rounded-full
+                shadow-[0_0_25px_rgba(250,204,21,0.35)]
+              "
           />
 
           <div>

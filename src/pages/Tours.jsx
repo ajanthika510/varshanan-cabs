@@ -16,9 +16,8 @@ import {
 const tours = [
   {
     title: "Ella Mountains",
-    image: "https://thumbs.dreamstime.com/b/ella-rock-26571645.jpg",
+    image: "https://srilankaexplorers.com/wp-content/uploads/2024/06/ratna-01.jpg",
 
-    duration: "2 Days",
 
     desc: "Mountains, train rides, waterfalls, and peaceful nature.",
   },
@@ -28,8 +27,6 @@ const tours = [
     image:
       "https://cdn.pixabay.com/photo/2014/09/24/14/40/sigiriya-459197_1280.jpg",
 
-    duration: "1 Day",
-
     desc: "Climb the world-famous Lion Rock fortress in Sri Lanka.",
   },
 
@@ -37,8 +34,6 @@ const tours = [
     title: "Wildlife Safari",
     image:
       "https://www.annees-de-pelerinage.com/wp-content/uploads/2019/03/elephants.jpg",
-
-    duration: "1 Day",
 
     desc: "Experience elephants, jungles, and unforgettable safaris.",
   },
@@ -48,8 +43,6 @@ const tours = [
     image:
       "https://lakpura.com/cdn/shop/files/LKI7450052-01-E.jpg?v=1726140371&width=3840",
 
-    duration: "3 Days",
-
     desc: "Golden beaches, surfing vibes, and tropical relaxation.",
   },
 
@@ -58,7 +51,6 @@ const tours = [
     image:
       "https://storage.googleapis.com/stateless-www-justwravel-com/2024/09/22e35baa-isurumuniya-vihara-anuradhapura.jpg",
 
-    duration: "1 Day",
 
     desc: "Explore rich culture, temples, and historical wonders.",
   },
@@ -68,8 +60,6 @@ const tours = [
     image:
       "https://www.elitehavens.com/magazine/wp-content/uploads/2024/11/Luxury-Travel-Trends-of-2024-The-Year-of-Rediscovery-1.png",
 
-    duration: "5 Days",
-
     desc: "Premium travel experiences with luxury comfort.",
   },
 
@@ -77,8 +67,6 @@ const tours = [
     title: "Kandy Experience",
     image:
       "https://www.travelcenter.uk/blog/wp-content/uploads/2025/01/kandy-1024x551.jpg",
-
-    duration: "2 Days",
 
     desc: "Discover the cultural capital of Sri Lanka.",
   },
@@ -88,8 +76,6 @@ const tours = [
     image:
       "https://w0.peakpx.com/wallpaper/339/984/HD-wallpaper-nine-arch-bridge-beauti-bridge-nature-old-train.jpg",
 
-    duration: "1 Day",
-
     desc: "One of the most beautiful train bridge experiences in Asia.",
   },
 
@@ -97,8 +83,6 @@ const tours = [
     title: "Mirissa Whale Watching",
     image:
       "https://rajaandthewhales.com/wp-content/uploads/2017/10/2-1.jpg",
-
-    duration: "1 Day",
 
     desc: "Watch blue whales and dolphins in the Indian Ocean.",
   },
@@ -108,17 +92,13 @@ const tours = [
     image:
       "https://lakpura.com/cdn/shop/products/LK60400800-03-E-1280-720.jpg?v=1624589937&width=1445",
 
-    duration: "2 Days",
-
     desc: "Spot leopards, elephants and wildlife adventures.",
   },
 
   {
     title: "Adam's Peak",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzMOSOZaKDonOwFepgX_s3xKhWNlXUviiLsg&s",
-
-    duration: "2 Days",
+      "https://thesrilankatravelblog.com/wp-content/uploads/2020/04/Adams-Peak-slider-1.jpg",
 
     desc: "Sacred mountain sunrise experience above the clouds.",
   },
@@ -127,8 +107,6 @@ const tours = [
     title: "Nilaveli Paradise",
     image:
       "https://media-cdn.tripadvisor.com/media/photo-s/08/dd/23/b5/bay-beach-hotel-nilaveli.jpg",
-
-    duration: "3 Days",
 
     desc: "Crystal-clear beaches and peaceful tropical paradise.",
   },
@@ -275,11 +253,6 @@ export default function ToursPage() {
                 alt={tour.title}
                 className="h-[280px] sm:h-[350px] w-full object-cover"
               />
-
-              {/* DURATION */}
-              <div className="absolute top-5 left-5 bg-cyan-400 text-black px-4 py-2 rounded-full text-sm font-bold">
-                {tour.duration}
-              </div>
 
             </div>
 

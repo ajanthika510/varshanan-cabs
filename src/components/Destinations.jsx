@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const places = [
   {
     title: "Ella Mountains",
-    image: "https://thumbs.dreamstime.com/b/ella-rock-26571645.jpg",
+    image: "https://srilankaexplorers.com/wp-content/uploads/2024/06/ratna-01.jpg",
     desc: "Mountains, train rides, waterfalls, and peaceful nature.",
   },
   {
@@ -63,7 +63,7 @@ const places = [
   {
     title: "Adam's Peak",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZPQpPsApJ9NzcFv0W5NXVV8lKozlU5TjJqg&s",
+      "https://thesrilankatravelblog.com/wp-content/uploads/2020/04/Adams-Peak-slider-1.jpg",
     desc: "Sacred mountain sunrise experience above the clouds.",
   },
   {

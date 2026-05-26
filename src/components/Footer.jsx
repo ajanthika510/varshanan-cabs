@@ -121,16 +121,6 @@ export default function Footer() {
                 <FaInstagram />
               </a>
 
-              {/* WHATSAPP */}
-              <a
-                href="https://wa.me/94776716786"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 hover:bg-green-500 transition duration-300 flex items-center justify-center text-xl text-white"
-              >
-                <FaWhatsapp />
-              </a>
-
             </div>
 
           </div>
@@ -161,7 +151,7 @@ export default function Footer() {
           {/* RIGHT */}
           <p>
 
-            Powered by{" "}
+            Designed and Developed by{" "}
 
             <a
               href="https://www.neirahtech.com/"

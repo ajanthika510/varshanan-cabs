@@ -3,9 +3,9 @@ import Hero from "../components/Hero";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Fleet from "../components/Fleet";
 import Testimonials from "../components/Testimonials";
+import Us from "../components/Us";
 import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
-import RouteMap from "../components/LankaMap";
 import Destinations from "../components/Destinations";
 
 export default function Home() {
@@ -15,8 +15,8 @@ export default function Home() {
       <Hero />
       <WhyChooseUs />
        <Destinations />
-       <RouteMap />
       <Fleet />
+      <Us />
       <Testimonials />
       <Footer />
       <WhatsAppButton />
