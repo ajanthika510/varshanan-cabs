@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes roadMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-120px);
+  }
+}
+
+.animate-road {
+  animation: roadMove 0.5s linear infinite;
+}
+
+@keyframes taxiDrive {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+
+  20% {
+    transform: translateX(500px) translateY(-8px);
+  }
+
+  40% {
+    transform: translateX(700px) translateY(0);
+  }
+
+  60% {
+    transform: translateX(850px) translateY(-6px);
+  }
+
+  100% {
+    transform: translateX(2200px) translateY(0);
+  }
+}
+
+.taxi-drive {
+  animation: taxiDrive 8s ease-in-out infinite;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
