@@ -23,11 +23,6 @@ export default function Home() {
 
       <Fleet />
 
-      {/* 🚖 BOOKING SECTION (IMPORTANT TARGET) */}
-      <div className="py-20 px-4 sm:px-6">
-        <BookingCard />
-      </div>
-
       <Us />
 
       <Testimonials />
