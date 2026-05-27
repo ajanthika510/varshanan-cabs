@@ -75,16 +75,6 @@ export default function TrustSection() {
 
             </div>
 
-            {/* BUTTON */}
-            <div className="mt-12">
-              <a
-                href="#bookingCard"
-                className="inline-block bg-[#1d4d8f] hover:bg-cyan-500 text-white px-10 py-4 rounded-2xl font-bold transition duration-300 hover:scale-105 shadow-xl"
-              >
-                Book Your Ride
-              </a>
-            </div>
-
           </div>
 
           {/* RIGHT IMAGE */}
