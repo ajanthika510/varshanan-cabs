@@ -5,12 +5,12 @@ const vehicles = [
   {
     name: "Luxury Sedan",
     image: sedan,
-    desc: "Comfortable, stylish, perfect for city rides and airport transfers.",
+    desc:
+      "Comfortable, stylish, perfect for city rides and airport transfers.",
     seats: 4,
     luggage: "2 Bags",
     ac: true,
     transmission: "Auto",
-    pricePerKm: 180,
     fuelType: "Hybrid",
     rating: 4.8,
   },
@@ -19,95 +19,295 @@ const vehicles = [
 export default function Fleet() {
 
   return (
-    <section id="fleet" className="py-20 px-4 bg-[#02131f]">
-      <div className="max-w-6xl mx-auto">
+
+    <section
+      id="fleet"
+      className="
+        py-16
+        sm:py-20
+        md:py-24
+        px-4
+        sm:px-6
+        bg-[#02131f]
+      "
+    >
+
+      <div className="max-w-7xl mx-auto">
 
         {/* HEADER */}
-        <div className="text-center mb-14">
-          <p className="text-cyan-400 tracking-[6px] uppercase text-sm">
+        <div className="text-center mb-12 sm:mb-16">
+
+          <p
+            className="
+              text-cyan-400
+              tracking-[4px]
+              sm:tracking-[6px]
+              uppercase
+              text-xs
+              sm:text-sm
+              font-semibold
+            "
+          >
             Premium Fleet
           </p>
-          <h2 className="text-5xl font-black text-white mt-2">
+
+          <h2
+            className="
+              text-3xl
+              sm:text-5xl
+              md:text-6xl
+              font-black
+              text-white
+              mt-3
+              leading-tight
+            "
+          >
             Choose Your Ride
           </h2>
+
         </div>
 
-        {/* CARD */}
+        {/* VEHICLE CARD */}
         {vehicles.map((v, i) => (
+
           <motion.div
             key={i}
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             whileHover={{ scale: 1.01 }}
-            transition={{ duration: 0.4 }}
-            className="relative flex flex-col md:flex-row bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-xl"
+            transition={{ duration: 0.5 }}
+            className="
+              relative
+              flex
+              flex-col
+              lg:flex-row
+              bg-white/5
+              border
+              border-white/10
+              rounded-[30px]
+              overflow-hidden
+              backdrop-blur-xl
+              shadow-[0_0_40px_rgba(0,0,0,0.3)]
+            "
           >
 
             {/* IMAGE SIDE */}
-            <div className="md:w-1/2 relative">
+            <div className="lg:w-1/2 relative">
+
               <img
                 src={v.image}
-                className="h-full w-full object-cover min-h-[260px]"
                 alt={v.name}
+                className="
+                  w-full
+                  h-[260px]
+                  sm:h-[320px]
+                  md:h-[420px]
+                  lg:h-full
+                  object-cover
+                  object-center
+                "
               />
 
-              {/* GRADIENT OVERLAY */}
+              {/* OVERLAY */}
               <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
 
-              {/* RATING BADGE */}
-              <div className="absolute top-4 left-4 bg-yellow-400 text-black font-bold px-3 py-1 rounded-full text-sm">
+              {/* RATING */}
+              <div
+                className="
+                  absolute
+                  top-4
+                  left-4
+                  bg-yellow-400
+                  text-black
+                  font-bold
+                  px-4
+                  py-2
+                  rounded-full
+                  text-xs
+                  sm:text-sm
+                  shadow-lg
+                "
+              >
                 ⭐ {v.rating}
               </div>
+
             </div>
 
             {/* INFO SIDE */}
-            <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-between">
+            <div
+              className="
+                lg:w-1/2
+                p-5
+                sm:p-7
+                md:p-10
+                flex
+                flex-col
+                justify-between
+              "
+            >
 
-              {/* TOP INFO */}
+              {/* TOP */}
               <div>
 
-                <h3 className="text-3xl font-bold text-white">
+                <h3
+                  className="
+                    text-2xl
+                    sm:text-3xl
+                    md:text-4xl
+                    font-black
+                    text-white
+                    leading-tight
+                  "
+                >
                   {v.name}
                 </h3>
 
-                <p className="text-gray-300 text-sm mt-2 mb-6">
+                <p
+                  className="
+                    text-gray-300
+                    text-sm
+                    sm:text-base
+                    leading-relaxed
+                    mt-4
+                    mb-8
+                  "
+                >
                   {v.desc}
                 </p>
 
                 {/* SPEC GRID */}
-                <div className="grid grid-cols-2 gap-3 text-sm text-gray-300">
+                <div
+                  className="
+                    grid
+                    grid-cols-1
+                    sm:grid-cols-2
+                    gap-3
+                    text-sm
+                    sm:text-base
+                  "
+                >
 
-                  <div className="bg-white/5 p-3 rounded-xl">👥 {v.seats} Seats</div>
-                  <div className="bg-white/5 p-3 rounded-xl">🧳 {v.luggage}</div>
-                  <div className="bg-white/5 p-3 rounded-xl">❄️ AC: {v.ac ? "Yes" : "No"}</div>
-                  <div className="bg-white/5 p-3 rounded-xl">⚙️ {v.transmission}</div>
-                  <div className="bg-white/5 p-3 rounded-xl">⛽ {v.fuelType}</div>
-                  <div className="bg-white/5 p-3 rounded-xl text-cyan-400 font-bold">
-                    Rs. {v.pricePerKm}/km
+                  {/* SEATS */}
+                  <div className="bg-white/5 p-4 rounded-2xl text-gray-300">
+                    👥 {v.seats} Seats
+                  </div>
+
+                  {/* LUGGAGE */}
+                  <div className="bg-white/5 p-4 rounded-2xl text-gray-300">
+                    🧳 {v.luggage}
+                  </div>
+
+                  {/* AC */}
+                  <div className="bg-white/5 p-4 rounded-2xl text-gray-300">
+                    ❄️ AC: {v.ac ? "Yes" : "No"}
+                  </div>
+
+                  {/* TRANSMISSION */}
+                  <div className="bg-white/5 p-4 rounded-2xl text-gray-300">
+                    ⚙️ {v.transmission}
+                  </div>
+
+                  {/* FUEL */}
+                  <div className="bg-white/5 p-4 rounded-2xl text-gray-300">
+                    ⛽ {v.fuelType}
+                  </div>
+
+                  {/* PRICING */}
+                  <div
+                    className="
+                      bg-white/5
+                      p-4
+                      rounded-2xl
+                      text-yellow-400
+                      font-bold
+                      text-center
+                    "
+                  >
+                    Contact for Pricing
                   </div>
 
                 </div>
+
               </div>
 
-              {/* CTA BAR */}
-              <div className="mt-6 flex items-center justify-between">
+              {/* CTA */}
+              <div
+                className="
+                  mt-8
+                  flex
+                  flex-col
+                  sm:flex-row
+                  items-start
+                  sm:items-center
+                  justify-between
+                  gap-5
+                "
+              >
 
+                {/* LEFT TEXT */}
                 <div>
-                  <p className="text-cyan-400 font-bold text-lg">
+
+                  <p
+                    className="
+                      text-cyan-400
+                      font-bold
+                      text-lg
+                      sm:text-xl
+                    "
+                  >
                     Instant Booking
                   </p>
-                  <p className="text-gray-400 text-xs">
-                    WhatsApp confirmation
+
+                  <p
+                    className="
+                      text-gray-400
+                      text-xs
+                      sm:text-sm
+                      mt-1
+                    "
+                  >
+                    WhatsApp confirmation available
                   </p>
+
                 </div>
+
+                {/* BUTTON */}
+                <a
+                  href="https://wa.me/94776716786"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    w-full
+                    sm:w-auto
+                    bg-yellow-400
+                    text-black
+                    px-6
+                    sm:px-8
+                    py-3
+                    sm:py-4
+                    rounded-2xl
+                    font-bold
+                    text-center
+                    hover:scale-105
+                    transition
+                    duration-300
+                    shadow-[0_0_30px_rgba(250,204,21,0.35)]
+                  "
+                >
+                  Book Vehicle
+                </a>
 
               </div>
 
             </div>
+
           </motion.div>
+
         ))}
 
       </div>
+
     </section>
   );
 }

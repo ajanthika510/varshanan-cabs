@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 import BookingCard from "./BookingCard";
 
@@ -38,7 +39,13 @@ export default function Hero() {
 
       {/* BACKGROUND IMAGE */}
       <div
-        className="absolute inset-0 bg-cover bg-center scale-105"
+        className="
+          absolute
+          inset-0
+          bg-cover
+          bg-center
+          scale-105
+        "
         style={{
           backgroundImage:
             "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2070&auto=format&fit=crop')",
@@ -181,9 +188,9 @@ export default function Hero() {
                 Book Airport Pickup
               </button>
 
-              {/* TOURS */}
-              <a
-                href="/tours"
+              {/* TOURS BUTTON */}
+              <Link
+                to="/tours"
                 className="
                   border
                   border-white/20
@@ -194,7 +201,9 @@ export default function Hero() {
                   rounded-full
                   font-semibold
                   hover:bg-white/20
+                  hover:scale-105
                   transition
+                  duration-300
                   text-center
                   text-white
                   text-sm
@@ -202,7 +211,7 @@ export default function Hero() {
                 "
               >
                 Explore Day Tours
-              </a>
+              </Link>
 
             </div>
 
