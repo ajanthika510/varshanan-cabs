@@ -1,89 +1,61 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const places = [
   {
     title: "Ella Mountains",
-    image: "https://srilankaexplorers.com/wp-content/uploads/2024/06/ratna-01.jpg",
+    image:
+      "https://srilankaexplorers.com/wp-content/uploads/2024/06/ratna-01.jpg",
     desc: "Mountains, train rides, waterfalls, and peaceful nature.",
   },
+
   {
     title: "Sigiriya Rock",
-    image: "https://cdn.pixabay.com/photo/2014/09/24/14/40/sigiriya-459197_1280.jpg",
+    image:
+      "https://cdn.pixabay.com/photo/2014/09/24/14/40/sigiriya-459197_1280.jpg",
     desc: "Climb the world-famous Lion Rock fortress in Sri Lanka.",
   },
+
   {
     title: "Wildlife Safari",
     image:
       "https://www.annees-de-pelerinage.com/wp-content/uploads/2019/03/elephants.jpg",
     desc: "Experience elephants, jungles, and unforgettable safaris.",
   },
+
   {
     title: "Sri Lanka Beaches",
     image:
       "https://lakpura.com/cdn/shop/files/LKI7450052-01-E.jpg?v=1726140371&width=3840",
     desc: "Golden beaches, surfing vibes, and tropical relaxation.",
   },
-  {
-    title: "Ancient Temples",
-    image:
-      "https://storage.googleapis.com/stateless-www-justwravel-com/2024/09/22e35baa-isurumuniya-vihara-anuradhapura.jpg",
-    desc: "Explore rich culture, temples, and historical wonders.",
-  },
-  {
-    title: "Luxury Travel",
-    image:
-      "https://www.elitehavens.com/magazine/wp-content/uploads/2024/11/Luxury-Travel-Trends-of-2024-The-Year-of-Rediscovery-1.png",
-    desc: "Premium travel experiences with luxury comfort.",
-  },
-  {
-    title: "Kandy Experience",
-    image:
-      "https://www.travelcenter.uk/blog/wp-content/uploads/2025/01/kandy-1024x551.jpg",
-    desc: "Discover the cultural capital of Sri Lanka.",
-  },
-  {
-    title: "Nine Arches Bridge",
-    image:
-      "https://w0.peakpx.com/wallpaper/339/984/HD-wallpaper-nine-arch-bridge-beauti-bridge-nature-old-train.jpg",
-    desc: "One of the most beautiful train bridge experiences in Asia.",
-  },
-  {
-    title: "Mirissa Whale Watching",
-    image:
-      "https://rajaandthewhales.com/wp-content/uploads/2017/10/2-1.jpg",
-    desc: "Watch blue whales and dolphins in the Indian Ocean.",
-  },
-  {
-    title: "Yala National Park",
-    image:
-      "https://lakpura.com/cdn/shop/products/LK60400800-03-E-1280-720.jpg?v=1624589937&width=1445",
-    desc: "Spot leopards, elephants and wildlife adventures.",
-  },
-  {
-    title: "Adam's Peak",
-    image:
-      "https://thesrilankatravelblog.com/wp-content/uploads/2020/04/Adams-Peak-slider-1.jpg",
-    desc: "Sacred mountain sunrise experience above the clouds.",
-  },
-  {
-    title: "Nilaveli Paradise",
-    image:
-      "https://media-cdn.tripadvisor.com/media/photo-s/08/dd/23/b5/bay-beach-hotel-nilaveli.jpg",
-    desc: "Crystal-clear beaches and peaceful tropical paradise.",
-  },
 ];
 
 export default function Destinations() {
   const [current, setCurrent] = useState(0);
 
+  // AUTO SLIDE
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % places.length);
+      nextSlide();
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [current]);
+
+  // NEXT
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % places.length);
+  };
+
+  // PREV
+  const prevSlide = () => {
+    setCurrent((prev) =>
+      prev === 0 ? places.length - 1 : prev - 1
+    );
+  };
 
   return (
     <section
@@ -91,6 +63,7 @@ export default function Destinations() {
       className="relative min-h-[85vh] md:h-screen overflow-hidden bg-black"
     >
       <AnimatePresence mode="wait">
+
         <motion.div
           key={current}
           initial={{ opacity: 0, scale: 1.05 }}
@@ -99,6 +72,7 @@ export default function Destinations() {
           transition={{ duration: 1 }}
           className="absolute inset-0"
         >
+
           {/* IMAGE */}
           <motion.img
             src={places[current].image}
@@ -106,12 +80,14 @@ export default function Destinations() {
             initial={{ scale: 1 }}
             animate={{ scale: 1.12 }}
             transition={{ duration: 6, ease: "linear" }}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
 
           {/* OVERLAY */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 flex items-end">
+
             <div className="px-5 sm:px-10 md:px-20 pb-16 md:pb-24 max-w-3xl">
+
               {/* LABEL */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -143,32 +119,88 @@ export default function Destinations() {
               </motion.p>
 
               {/* BUTTON */}
-              <motion.a
-                href="/Tours"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-block bg-cyan-400 text-black font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-2xl transition"
+              <Link
+                to="/tours"
+                className="inline-block bg-cyan-400 text-black font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-2xl transition hover:scale-105"
               >
                 Explore Now
-              </motion.a>
+              </Link>
+
             </div>
+
           </div>
+
+          {/* PREV BUTTON */}
+          <button
+            onClick={prevSlide}
+            className="
+              absolute
+              left-4
+              md:left-8
+              top-1/2
+              -translate-y-1/2
+              z-20
+              bg-white/10
+              backdrop-blur-md
+              border
+              border-white/20
+              p-3
+              rounded-full
+              text-white
+              hover:bg-cyan-400
+              hover:text-black
+              transition
+            "
+          >
+            <ChevronLeft size={28} />
+          </button>
+
+          {/* NEXT BUTTON */}
+          <button
+            onClick={nextSlide}
+            className="
+              absolute
+              right-4
+              md:right-8
+              top-1/2
+              -translate-y-1/2
+              z-20
+              bg-white/10
+              backdrop-blur-md
+              border
+              border-white/20
+              p-3
+              rounded-full
+              text-white
+              hover:bg-cyan-400
+              hover:text-black
+              transition
+            "
+          >
+            <ChevronRight size={28} />
+          </button>
 
           {/* INDICATORS */}
           <div className="absolute bottom-4 right-4 sm:bottom-8 sm:right-8 flex gap-2 sm:gap-3 flex-wrap max-w-[180px] sm:max-w-[250px] justify-end">
+
             {places.map((_, index) => (
               <motion.div
                 key={index}
                 animate={{
                   width: current === index ? 40 : 10,
                   backgroundColor:
-                    current === index ? "#22d3ee" : "rgba(255,255,255,0.4)",
+                    current === index
+                      ? "#22d3ee"
+                      : "rgba(255,255,255,0.4)",
                 }}
                 className="h-2 sm:h-3 rounded-full"
               />
             ))}
+
           </div>
+
         </motion.div>
+
       </AnimatePresence>
     </section>
   );

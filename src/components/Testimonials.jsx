@@ -51,7 +51,7 @@ export default function Testimonials() {
                 <img
                   src={review.image}
                   alt=""
-                  className="w-16 h-16 rounded-full object-cover border-2 border-yellow-400"
+                  className="w-24 h-24 rounded-full object-cover border-2 border-yellow-400"
                 />
 
                 <div>

@@ -4,7 +4,12 @@ import {
   FaFacebookF,
   FaInstagram,
   FaWhatsapp,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
+
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -55,19 +60,46 @@ export default function Footer() {
               Contact
             </h3>
 
-            <div className="space-y-4 text-gray-300">
+            <div className="space-y-5 text-gray-300 text-sm sm:text-base">
 
-              <p>
-                No 241G Valaiyoothu, Nilaveli, Trincomalee
-              </p>
+              {/* ADDRESS */}
+              <div className="flex items-start gap-3">
 
-              <p>
-                +94 77 671 6786
-              </p>
+                <FaMapMarkerAlt className="text-yellow-400 mt-1" />
 
-              <p>
-                mathiyalini496@gmail.com
-              </p>
+                <p>
+                  No 241G Valaiyoothu, Nilaveli, Trincomalee
+                </p>
+
+              </div>
+
+              {/* PHONE */}
+              <div className="flex items-center gap-3">
+
+                <FaPhoneAlt className="text-yellow-400" />
+
+                <a
+                  href="tel:+94776716786"
+                  className="hover:text-yellow-400 transition"
+                >
+                  +94 77 671 6786
+                </a>
+
+              </div>
+
+              {/* EMAIL */}
+              <div className="flex items-center gap-3">
+
+                <FaEnvelope className="text-yellow-400" />
+
+                <a
+                  href="mailto:mathiyalini496@gmail.com"
+                  className="hover:text-yellow-400 transition break-all"
+                >
+                  mathiyalini496@gmail.com
+                </a>
+
+              </div>
 
             </div>
 
@@ -80,18 +112,46 @@ export default function Footer() {
               Services
             </h3>
 
-            <div className="space-y-4 text-gray-300">
+            <div className="space-y-4 text-gray-300 text-sm sm:text-base">
 
-              <p>Airport Pickup</p>
-              <p>Taxi Service</p>
-              <p>Day Tours</p>
-              <p>Local Guide</p>
-              <p>Safe Travel</p>
+              <Link
+                to="/services"
+                className="block hover:text-yellow-400 transition"
+              >
+                Airport Pickup
+              </Link>
+
+              <Link
+                to="/services"
+                className="block hover:text-yellow-400 transition"
+              >
+                Taxi Service
+              </Link>
+
+              <Link
+                to="/tours"
+                className="block hover:text-yellow-400 transition"
+              >
+                Day Tours
+              </Link>
+
+              <Link
+                to="/services"
+                className="block hover:text-yellow-400 transition"
+              >
+                Local Guide
+              </Link>
+
+              <Link
+                to="/services"
+                className="block hover:text-yellow-400 transition"
+              >
+                Safe Travel
+              </Link>
 
             </div>
 
           </div>
-
           {/* SOCIALS */}
           <div>
 
@@ -111,16 +171,6 @@ export default function Footer() {
                 <FaFacebookF />
               </a>
 
-              {/* INSTAGRAM */}
-              <a
-                href="https://instagram.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 hover:bg-pink-600 transition duration-300 flex items-center justify-center text-xl text-white"
-              >
-                <FaInstagram />
-              </a>
-
             </div>
 
           </div>
@@ -134,19 +184,6 @@ export default function Footer() {
           <p>
             © 2026 Varshanan Cabs. All Rights Reserved.
           </p>
-
-          {/* CENTER */}
-          <div className="flex items-center gap-6">
-
-            <button className="hover:text-yellow-400 transition">
-              Privacy Policy
-            </button>
-
-            <button className="hover:text-yellow-400 transition">
-              Cookies
-            </button>
-
-          </div>
 
           {/* RIGHT */}
           <p>

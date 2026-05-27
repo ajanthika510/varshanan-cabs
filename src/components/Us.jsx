@@ -78,9 +78,7 @@ export default function TrustSection() {
             {/* BUTTON */}
             <div className="mt-12">
               <a
-                href="https://wa.me/94776716786"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#bookingCard"
                 className="inline-block bg-[#1d4d8f] hover:bg-cyan-500 text-white px-10 py-4 rounded-2xl font-bold transition duration-300 hover:scale-105 shadow-xl"
               >
                 Book Your Ride

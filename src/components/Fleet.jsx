@@ -1,131 +1,112 @@
 import { motion } from "framer-motion";
+import sedan from "../assets/sedan.png";
 
 const vehicles = [
   {
-    image: "/src/assets/sedan.png",
-    desc: "Comfortable, stylish, and perfect for long journeys.",
+    name: "Luxury Sedan",
+    image: sedan,
+    desc: "Comfortable, stylish, perfect for city rides and airport transfers.",
+    seats: 4,
+    luggage: "2 Bags",
+    ac: true,
+    transmission: "Auto",
+    pricePerKm: 180,
+    fuelType: "Hybrid",
+    rating: 4.8,
   },
 ];
 
 export default function Fleet() {
+
   return (
-    <section
-      id="fleet"
-      className="py-20 sm:py-24 md:py-28 px-4 sm:px-6 bg-[#02131f]"
-    >
-      <div className="max-w-7xl mx-auto">
+    <section id="fleet" className="py-20 px-4 bg-[#02131f]">
+      <div className="max-w-6xl mx-auto">
 
-        {/* HEADING */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-14 md:mb-20"
-        >
-          <p className="text-cyan-400 uppercase tracking-[4px] sm:tracking-[6px] mb-4 text-sm sm:text-base">
-            Premium Vehicles
+        {/* HEADER */}
+        <div className="text-center mb-14">
+          <p className="text-cyan-400 tracking-[6px] uppercase text-sm">
+            Premium Fleet
           </p>
-
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white">
-            Our Fleet
+          <h2 className="text-5xl font-black text-white mt-2">
+            Choose Your Ride
           </h2>
-        </motion.div>
+        </div>
 
-        {/* GRID */}
-        <div className="flex justify-center">
+        {/* CARD */}
+        {vehicles.map((v, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ scale: 1.01 }}
+            transition={{ duration: 0.4 }}
+            className="relative flex flex-col md:flex-row bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-xl"
+          >
 
-          {vehicles.map((vehicle, index) => (
+            {/* IMAGE SIDE */}
+            <div className="md:w-1/2 relative">
+              <img
+                src={v.image}
+                className="h-full w-full object-cover min-h-[260px]"
+                alt={v.name}
+              />
 
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 80 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.8,
-                delay: index * 0.2,
-              }}
-              whileHover={{ y: -10 }}
-              className="
-                group
-                relative
-                w-full
-                max-w-3xl
-                bg-white/5
-                rounded-[25px]
-                md:rounded-[35px]
-                overflow-hidden
-                border
-                border-white/10
-                backdrop-blur-xl
-              "
-            >
+              {/* GRADIENT OVERLAY */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
 
-              {/* IMAGE */}
-              <div className="overflow-hidden">
-
-                <motion.img
-                  whileHover={{ scale: 1.08 }}
-                  transition={{ duration: 0.6 }}
-                  src={vehicle.image}
-                  alt={vehicle.name}
-                  className="
-                    h-[250px]
-                    sm:h-[300px]
-                    md:h-[350px]
-                    w-full
-                    object-cover
-                  "
-                />
-
+              {/* RATING BADGE */}
+              <div className="absolute top-4 left-4 bg-yellow-400 text-black font-bold px-3 py-1 rounded-full text-sm">
+                ⭐ {v.rating}
               </div>
+            </div>
 
-              {/* OVERLAY */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90" />
+            {/* INFO SIDE */}
+            <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-between">
 
-              {/* CONTENT */}
-              <div className="absolute bottom-0 p-5 sm:p-6 md:p-8">
+              {/* TOP INFO */}
+              <div>
 
-                <h3 className="text-2xl sm:text-3xl font-black text-white mb-3">
-                  {vehicle.name}
+                <h3 className="text-3xl font-bold text-white">
+                  {v.name}
                 </h3>
 
-                <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-5 max-w-md">
-                  {vehicle.desc}
+                <p className="text-gray-300 text-sm mt-2 mb-6">
+                  {v.desc}
                 </p>
 
-                {/* BUTTON */}
-                <a
-                  href="https://wa.me/94776716786"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    inline-block
-                    bg-yellow-400
-                    text-black
-                    px-5
-                    sm:px-6
-                    py-3
-                    rounded-2xl
-                    font-bold
-                    text-sm
-                    sm:text-base
-                    hover:scale-105
-                    transition
-                    duration-300
-                  "
-                >
-                  Book Vehicle
-                </a>
+                {/* SPEC GRID */}
+                <div className="grid grid-cols-2 gap-3 text-sm text-gray-300">
+
+                  <div className="bg-white/5 p-3 rounded-xl">👥 {v.seats} Seats</div>
+                  <div className="bg-white/5 p-3 rounded-xl">🧳 {v.luggage}</div>
+                  <div className="bg-white/5 p-3 rounded-xl">❄️ AC: {v.ac ? "Yes" : "No"}</div>
+                  <div className="bg-white/5 p-3 rounded-xl">⚙️ {v.transmission}</div>
+                  <div className="bg-white/5 p-3 rounded-xl">⛽ {v.fuelType}</div>
+                  <div className="bg-white/5 p-3 rounded-xl text-cyan-400 font-bold">
+                    Rs. {v.pricePerKm}/km
+                  </div>
+
+                </div>
+              </div>
+
+              {/* CTA BAR */}
+              <div className="mt-6 flex items-center justify-between">
+
+                <div>
+                  <p className="text-cyan-400 font-bold text-lg">
+                    Instant Booking
+                  </p>
+                  <p className="text-gray-400 text-xs">
+                    WhatsApp confirmation
+                  </p>
+                </div>
 
               </div>
 
-            </motion.div>
+            </div>
+          </motion.div>
+        ))}
 
-          ))}
-
-        </div>
       </div>
     </section>
   );
