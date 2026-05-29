@@ -402,21 +402,21 @@ export default function About() {
                       ❄️ Air Conditioned
                     </div>
 
-                    {/* UPDATED PRICING */}
+                    {/* PRICING */}
                     <div
                       className="
-                        bg-cyan-50
+                        bg-sky-50
                         p-4
                         rounded-2xl
                         border
-                        border-cyan-500
-                        text-text-white
-                        font-bold
-                        text-center
+                        border-sky-100
+                        text-gray-800
+                        font-medium
                       "
                     >
-                      Contact for Pricing
+                      💬 Contact for Pricing
                     </div>
+                      
 
                   </div>
 
